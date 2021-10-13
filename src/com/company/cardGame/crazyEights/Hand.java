@@ -1,5 +1,6 @@
 package com.company.cardGame.crazyEights;
 
+import com.company.Console;
 import com.company.cardGame.deck.Card;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class Hand {
     public void displayHand() {
         StringBuilder output = new StringBuilder();
         for (Card card : cards) {
-            output.append(card.display()).append(" ");
+            output.append(card.display()).append(" |");
         }
         System.out.println(output);
     }
@@ -35,7 +36,17 @@ public class Hand {
         return player.getName();
     }
 
+    public int getAction(Card topCard) {
+        return player.getAction(topCard);
+    }
+
+    public int pickHandCard() {
+        return player.pickHandCard(cards);
+    }
+
     public String getSlap() {
         return slap;
     }
+
+
 }
