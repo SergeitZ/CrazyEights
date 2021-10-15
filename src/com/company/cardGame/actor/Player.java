@@ -21,7 +21,7 @@ public class Player implements Actor {
     @Override
     public int getAction(Card topCard) {
         //Display hand and value
-        System.out.println(topCard.display());
+        System.out.println("Active card: " + topCard.display() + "\n");
         return Console.getInt("1) Draw\n2) Discard", 1, 2, "Invalid entry");
     }
 

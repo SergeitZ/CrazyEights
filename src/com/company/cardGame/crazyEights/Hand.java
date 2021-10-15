@@ -9,7 +9,7 @@ import java.util.List;
 public class Hand {
     private List<Card> cards = new ArrayList<>();
     private Actor player;
-    private String slap;
+    private String slap = "Slap!!";
 
     public Hand(Actor player) {
         this.player = player;
@@ -47,6 +47,4 @@ public class Hand {
     public String getSlap() {
         return slap;
     }
-
-
 }
