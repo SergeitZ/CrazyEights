@@ -22,7 +22,7 @@ public class Player implements Actor {
     public int getAction(Card topCard) {
         //Display hand and value
         System.out.println("Active card: " + topCard.display() + "\n");
-        return Console.getInt("1) Draw\n2) Discard", 1, 2, "Invalid entry");
+        return Console.getInt("1) Draw\n2) Play card", 1, 2, "Invalid entry");
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.company.cardGame.crazyEights;
 
-import com.company.Console;
 import com.company.cardGame.deck.Card;
 
 import java.util.ArrayList;
@@ -43,6 +42,8 @@ public class Hand {
     public int pickHandCard() {
         return player.pickHandCard(cards);
     }
+
+    public int size() { return cards.size(); }
 
     public String getSlap() {
         return slap;

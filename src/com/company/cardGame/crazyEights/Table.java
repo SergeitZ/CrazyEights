@@ -10,7 +10,7 @@ import com.company.cardGame.deck.StandardDeck;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-//TODO: next goal determine winner
+//TODO: Create an NPC player
 public class Table {
     List<Hand> hands = new ArrayList<>();
     List<Card> discardPile = new ArrayList<>();
@@ -23,7 +23,7 @@ public class Table {
     }
 
     public void addPlayer() {
-        int playerCount = Console.getInt("How many players?", 1, 6, "invalid player selection");
+        int playerCount = Console.getInt("How many players?", 1, 6, "Invalid entry");
         for (int count = 0; count < playerCount; count++) {
             Player newPlayer = new Player("Player" + (count + 1));
             hands.add(new Hand(newPlayer));
@@ -51,6 +51,7 @@ public class Table {
                 case 1 -> drawCard(player);
                 case 2 -> validateCard(player);
             }
+            determineWinner(player);
         }
         System.out.println(discardPile.get(discardPile.size() -  1).display());
     }
@@ -80,6 +81,13 @@ public class Table {
             } else {
                 validateCard(player);
             }
+        }
+    }
+
+    public void determineWinner(Hand player) {
+        if (player.size() == 0) {
+            System.out.println(player.getName() + " Wins!!");
+            System.exit(0);
         }
     }
 
