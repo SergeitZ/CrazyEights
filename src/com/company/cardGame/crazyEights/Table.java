@@ -1,6 +1,8 @@
 package com.company.cardGame.crazyEights;
 
+import com.company.Color;
 import com.company.Console;
+import com.company.cardGame.actor.Names;
 import com.company.cardGame.actor.Player;
 import com.company.cardGame.deck.Card;
 import com.company.cardGame.deck.Deck;
@@ -10,22 +12,24 @@ import com.company.cardGame.deck.StandardDeck;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 //TODO: Create an NPC player
+
 public class Table {
     List<Hand> hands = new ArrayList<>();
     List<Card> discardPile = new ArrayList<>();
     Deck deck;
+    Names names = new Names();
 
     public Table () {
         System.out.println("Crazy Eights");
         addPlayer();
-
     }
 
     public void addPlayer() {
         int playerCount = Console.getInt("How many players?", 1, 6, "Invalid entry");
         for (int count = 0; count < playerCount; count++) {
-            Player newPlayer = new Player("Player" + (count + 1));
+            Player newPlayer = new Player(names.nameGenerator());
             hands.add(new Hand(newPlayer));
         }
     }
@@ -44,7 +48,7 @@ public class Table {
 
     private void turn() {
         for (Hand player : hands) {
-            System.out.println(player.getName());
+            System.out.println(Color.CYAN_BOLD + player.getName() + Color.RESET);
             player.displayHand();
             int action = player.getAction(discardPile.get(discardPile.size() -  1));
             switch (action) {
