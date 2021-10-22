@@ -42,7 +42,7 @@ public class Names {
             "Knife",
             "Moon",
             "Eden",
-            "NIght",
+            "Night",
             "Saber",
             "Killer",
             "Secret",

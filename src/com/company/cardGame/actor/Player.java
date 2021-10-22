@@ -1,5 +1,6 @@
 package com.company.cardGame.actor;
 
+import com.company.Color;
 import com.company.Console;
 import com.company.cardGame.crazyEights.Actor;
 import com.company.cardGame.deck.Card;
@@ -21,7 +22,7 @@ public class Player implements Actor {
     @Override
     public int getAction(Card topCard) {
         //Display hand and value
-        System.out.println("Active card: " + topCard.display() + "\n");
+        System.out.println(Color.YELLOW_BOLD + "Active card: " + topCard.display() + Color.RESET +  "\n");
         return Console.getInt("1) Draw\n2) Play card", 1, 2, "Invalid entry");
     }
 
